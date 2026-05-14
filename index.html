@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nimble Tech — Great tech, made accessible</title>
+<meta name="description" content="Nimble Tech builds focused tools and the Nimble Pass — pay-as-you-go credits that work across our products like BundleRight.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0f0e0d;
+  --ink-mid: #4a4845;
+  --ink-light: #9a9690;
+  --paper: #faf9f7;
+  --paper-warm: #f3f1ec;
+  --paper-mid: #e8e4dc;
+  --accent: #1a2a44;
+  --accent-light: #2d4a78;
+  --accent-pale: #e8edf5;
+  --accent-border: #c2cfe3;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'Instrument Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
+  --radius: 10px;
+  --radius-lg: 16px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 60px;
+  background: rgba(250,249,247,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--paper-mid);
+}
+
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-mark {
+  width: 30px; height: 30px; background: var(--accent); border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-mark span { color: #fff; font-size: 12px; font-family: var(--mono); font-weight: 500; }
+.nav-name { font-size: 16px; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; }
+
+.nav-links { display: flex; align-items: center; gap: 2rem; }
+.nav-links a { font-size: 14px; color: var(--ink-mid); text-decoration: none; transition: color 0.15s; }
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  padding: 7px 18px; border-radius: 7px;
+  background: var(--accent); color: #fff;
+  font-size: 13px; font-weight: 500;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: background 0.15s;
+}
+.nav-cta:hover { background: var(--accent-light); }
+
+/* HERO */
+.hero {
+  padding: 140px 2rem 80px;
+  max-width: 900px; margin: 0 auto;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 14px; border-radius: 20px;
+  background: var(--accent-pale); color: var(--accent);
+  font-size: 12px; font-weight: 500;
+  margin-bottom: 2rem;
+  border: 1px solid var(--accent-border);
+}
+.hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+h1 em { font-style: italic; color: var(--accent); }
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--ink-mid);
+  max-width: 580px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+}
+
+.hero-actions { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+.btn-primary {
+  padding: 13px 28px; border-radius: var(--radius);
+  background: var(--accent); color: #fff;
+  font-size: 15px; font-weight: 500;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: all 0.15s; display: inline-block;
+}
+.btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+.btn-secondary {
+  padding: 13px 28px; border-radius: var(--radius);
+  background: transparent; color: var(--ink);
+  font-size: 15px; font-weight: 500;
+  text-decoration: none; border: 1.5px solid var(--paper-mid); cursor: pointer;
+  transition: all 0.15s; display: inline-block;
+}
+.btn-secondary:hover { border-color: var(--ink-light); }
+
+/* SECTIONS */
+section { padding: 5rem 2rem; }
+
+.section-inner { max-width: 900px; margin: 0 auto; }
+
+.section-label {
+  font-size: 12px; font-weight: 600; color: var(--ink-light);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.15; margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.section-sub {
+  font-size: 1.05rem;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+}
+
+/* MISSION (paper-warm strip) */
+.mission {
+  background: var(--paper-warm);
+  border-top: 1px solid var(--paper-mid);
+  border-bottom: 1px solid var(--paper-mid);
+}
+
+.mission .section-inner { text-align: center; }
+.mission .section-sub { margin-left: auto; margin-right: auto; }
+
+.mission-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  text-align: left;
+}
+
+.mission-card {
+  background: #fff;
+  border: 1px solid var(--paper-mid);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.mission-card-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.mission-card-title {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.mission-card-body {
+  font-size: 14px;
+  color: var(--ink-mid);
+  line-height: 1.6;
+}
+
+/* NIMBLE PASS */
+.pass-card {
+  background: #fff;
+  border: 1px solid var(--paper-mid);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+}
+
+.pass-card-body p {
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.pass-card-body p:last-child { margin-bottom: 0; }
+
+.pass-card-body strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.pass-visual {
+  background: var(--accent);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  color: #fff;
+  width: 220px;
+}
+
+.pass-visual-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 0.5rem;
+}
+
+.pass-visual-name {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.pass-visual-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  margin: 1rem 0;
+}
+
+.pass-visual-stat {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.pass-visual-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+}
+
+/* PRODUCT LIST */
+.products {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.product-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border: 1px solid var(--paper-mid);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.15s;
+}
+
+.product-row:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.product-mark {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.product-mark.coming {
+  background: var(--paper-warm);
+  color: var(--ink-light);
+  border: 1px dashed var(--paper-mid);
+}
+
+.product-info { flex: 1; }
+
+.product-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.product-desc {
+  font-size: 13px;
+  color: var(--ink-mid);
+}
+
+.product-arrow {
+  font-size: 18px;
+  color: var(--ink-light);
+}
+
+.product-row.disabled {
+  cursor: default;
+}
+
+.product-row.disabled:hover {
+  border-color: var(--paper-mid);
+  transform: none;
+}
+
+.product-row.disabled .product-name {
+  color: var(--ink-light);
+}
+
+.product-tag {
+  font-size: 10px;
+  font-family: var(--mono);
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--paper-warm);
+  color: var(--ink-light);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* WATCH THIS SPACE */
+.watch {
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+}
+
+.watch .section-inner { max-width: 700px; }
+.watch .section-label { color: rgba(255,255,255,0.5); }
+.watch .section-title { color: #fff; }
+.watch .section-sub {
+  color: rgba(255,255,255,0.75);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.watch-marquee {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.15rem, 2.5vw, 1.6rem);
+  color: rgba(255,255,255,0.92);
+  line-height: 1.5;
+  margin-top: 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.watch-marquee-attr {
+  display: block;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-top: 1rem;
+}
+
+/* CONTACT */
+.contact .section-inner { max-width: 600px; text-align: center; }
+.contact .section-sub { margin-left: auto; margin-right: auto; }
+
+.contact-form {
+  background: #fff;
+  border: 1px solid var(--paper-mid);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: left;
+  margin-top: 2rem;
+}
+
+.form-group { margin-bottom: 1rem; }
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--paper-mid);
+  font-size: 14px;
+  font-family: var(--sans);
+  transition: border-color 0.15s;
+  background: var(--paper);
+}
+
+.form-textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: #fff;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 13px 28px;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: var(--sans);
+  margin-top: 0.5rem;
+}
+
+.form-submit:hover {
+  background: var(--accent-light);
+  transform: translateY(-1px);
+}
+
+.contact-direct {
+  margin-top: 1.5rem;
+  font-size: 14px;
+  color: var(--ink-light);
+}
+
+.contact-direct a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-direct a:hover { text-decoration: underline; }
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 2rem;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+}
+
+footer a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+}
+
+footer a:hover { color: rgba(255,255,255,0.8); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mission-points { grid-template-columns: 1fr; }
+  .pass-card {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+  .pass-visual {
+    width: 100%;
+  }
+  section { padding: 3.5rem 1.5rem; }
+  .hero { padding: 110px 1.5rem 60px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-mark"><span>NT</span></div>
+    <span class="nav-name">Nimble Tech</span>
+  </a>
+  <div class="nav-links">
+    <a href="#mission">Mission</a>
+    <a href="#pass">Nimble Pass</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    <span>Parent company · Building in public</span>
+  </div>
+  <h1>Great tech, <em>made accessible</em>.</h1>
+  <p class="hero-sub">
+    Nimble Tech builds small, focused tools that solve one problem properly — and a single pay-as-you-go pass that works across all of them. No subscriptions. No seat counts. No fuss.
+  </p>
+  <div class="hero-actions">
+    <a href="#pass" class="btn-primary">How the Nimble Pass works</a>
+    <a href="https://bundleright.co.uk" class="btn-secondary" target="_blank" rel="noopener">Visit BundleRight →</a>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission" id="mission">
+  <div class="section-inner">
+    <div class="section-label">Our mission</div>
+    <h2 class="section-title">Powerful tools shouldn't be locked behind enterprise pricing.</h2>
+    <p class="section-sub">
+      We think a sole practitioner, a small firm, or a one-person team deserves the same quality of tool as a giant. So that's what we build.
+    </p>
+
+    <div class="mission-points">
+      <div class="mission-card">
+        <div class="mission-card-num">01</div>
+        <div class="mission-card-title">Solve one thing properly</div>
+        <div class="mission-card-body">Each Nimble product does a single job extremely well. No feature bloat, no creeping scope.</div>
+      </div>
+      <div class="mission-card">
+        <div class="mission-card-num">02</div>
+        <div class="mission-card-title">Pay only for what you use</div>
+        <div class="mission-card-body">No subscriptions. No annual lock-in. The Nimble Pass turns software into a pay-as-you-go utility.</div>
+      </div>
+      <div class="mission-card">
+        <div class="mission-card-num">03</div>
+        <div class="mission-card-title">Respect your data</div>
+        <div class="mission-card-body">Zero retention by default. We don't train on your work, sell your data, or pretend otherwise.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NIMBLE PASS -->
+<section id="pass">
+  <div class="section-inner">
+    <div class="section-label">The Nimble Pass</div>
+    <h2 class="section-title">One wallet. Every Nimble tool.</h2>
+    <p class="section-sub">
+      The Nimble Pass is a single set of credits that works across every product we build. Top up once, then use the same balance to bundle a court hearing in BundleRight today, and whatever we ship next week.
+    </p>
+
+    <div class="pass-card">
+      <div class="pass-card-body">
+        <p><strong>Buy credits when you need them.</strong> No monthly fee, no minimum, no expiry traps. If you only use a tool twice a year, you only pay for those two times.</p>
+        <p><strong>Spend them anywhere in the family.</strong> Today that means <a href="https://bundleright.co.uk" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-weight:500;">BundleRight</a>. Tomorrow it'll mean more — and your credits will already work there.</p>
+        <p><strong>Built for small teams and sole practitioners.</strong> The same quality of software a magic-circle firm pays six figures for, sized and priced for the rest of us.</p>
+      </div>
+      <div class="pass-visual">
+        <div class="pass-visual-label">Nimble Pass</div>
+        <div class="pass-visual-name">Pay as you go</div>
+        <div class="pass-visual-divider"></div>
+        <div class="pass-visual-stat">∞</div>
+        <div class="pass-visual-sub">products supported</div>
+      </div>
+    </div>
+
+    <div class="products">
+      <a href="https://bundleright.co.uk" class="product-row" target="_blank" rel="noopener">
+        <div class="product-mark" style="background: #1c3a2e;">BR</div>
+        <div class="product-info">
+          <div class="product-name">BundleRight</div>
+          <div class="product-desc">Court-ready document bundling for law firms. Live now.</div>
+        </div>
+        <div class="product-arrow">→</div>
+      </a>
+      <div class="product-row disabled">
+        <div class="product-mark coming">··</div>
+        <div class="product-info">
+          <div class="product-name">More on the way</div>
+          <div class="product-desc">We're working on the next one. Have an idea? <a href="#contact" style="color:var(--accent);text-decoration:none;">Tell us below</a>.</div>
+        </div>
+        <div class="product-tag">Soon</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WATCH THIS SPACE -->
+<section class="watch">
+  <div class="section-inner">
+    <div class="section-label">What's next</div>
+    <h2 class="section-title">Watch this space.</h2>
+    <p class="section-sub">
+      We're a small team shipping deliberately. New tools land when they're properly ready, not when a roadmap says so. Want a heads-up when the next one drops? Drop us a line below.
+    </p>
+    <div class="watch-marquee">
+      One day you'll have one system that does all of this.<br>
+      Until then, there's Nimble.
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get in touch</div>
+    <h2 class="section-title">Got an idea? We'd love to hear it.</h2>
+    <p class="section-sub">
+      Tell us what tool you wish existed. What's the boring, expensive, badly-served job in your day that you'd pay a few quid to make disappear? That's exactly the brief we're looking for.
+    </p>
+
+    <div class="contact-form">
+      <form name="ideas" method="POST" data-netlify="true" action="/success">
+        <input type="hidden" name="form-name" value="ideas" />
+        <div class="form-group">
+          <label for="name" class="form-label">Your name</label>
+          <input type="text" id="name" name="name" class="form-input" placeholder="Sarah Johnson" required>
+        </div>
+        <div class="form-group">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="idea" class="form-label">Your idea</label>
+          <textarea id="idea" name="idea" class="form-textarea" placeholder="The thing I wish existed is..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send it over</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Nimble Tech Ltd &nbsp;·&nbsp; <a href="https://bundleright.co.uk" target="_blank" rel="noopener">BundleRight</a></p>
+  <p style="margin-top:6px;">© 2026 Nimble Tech Ltd. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
