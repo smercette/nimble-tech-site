@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Nimble Tech, contact</title>
+<meta name="description" content="Contact Nimble Tech. Press, partnership, and general enquiries: hello@nimbletech.uk.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0f0e0d;
+  --ink-mid: #4a4845;
+  --ink-light: #9a9690;
+  --paper: #faf9f7;
+  --paper-warm: #f3f1ec;
+  --paper-mid: #e8e4dc;
+  --accent: #1a2a44;
+  --accent-light: #2d4a78;
+  --accent-pale: #e8edf5;
+  --accent-border: #c2cfe3;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'Instrument Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
+  --radius: 10px;
+  --radius-lg: 16px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 60px;
+  background: rgba(250,249,247,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--paper-mid);
+}
+
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-mark {
+  width: 30px; height: 30px; background: var(--accent); border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-mark span { color: #fff; font-size: 12px; font-family: var(--mono); font-weight: 500; }
+.nav-name { font-size: 16px; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; }
+
+.nav-links { display: flex; align-items: center; gap: 2rem; }
+.nav-links a { font-size: 14px; color: var(--ink-mid); text-decoration: none; transition: color 0.15s; }
+.nav-links a:hover { color: var(--ink); }
+
+/* CONTENT */
+.content {
+  max-width: 700px; margin: 0 auto;
+  padding: 120px 2rem 80px;
+}
+
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--ink-mid);
+  margin-bottom: 3rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* FORM */
+.contact-form {
+  background: #fff;
+  border: 1px solid var(--paper-mid);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.form-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  border: 1.5px solid var(--paper-mid);
+  font-size: 14px;
+  font-family: var(--sans);
+  transition: border-color 0.15s;
+  background: var(--paper);
+}
+
+.form-textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: #fff;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 13px 28px;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: var(--sans);
+}
+
+.form-submit:hover {
+  background: var(--accent-light);
+  transform: translateY(-1px);
+}
+
+.form-submit:disabled {
+  background: var(--ink-light);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-message {
+  margin-top: 1rem;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  display: none;
+}
+
+.form-message.success {
+  background: var(--accent-pale);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+  display: block;
+}
+
+.form-message.error {
+  background: #fff3f3;
+  color: #c0392b;
+  border: 1px solid #fce8e6;
+  display: block;
+}
+
+/* DIRECT EMAIL */
+.contact-direct {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 14px;
+  color: var(--ink-light);
+}
+
+.contact-direct a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-direct a:hover { text-decoration: underline; }
+
+/* REGISTERED OFFICE */
+.registered-office {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--paper-mid);
+  font-size: 13px;
+  color: var(--ink-light);
+  line-height: 1.6;
+}
+
+.registered-office-title {
+  font-weight: 600;
+  color: var(--ink-mid);
+  margin-bottom: 0.25rem;
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 2rem;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+}
+
+footer a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+}
+
+footer a:hover { color: rgba(255,255,255,0.8); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-mark"><span>NT</span></div>
+    <span class="nav-name">Nimble Tech</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#mission">Mission</a>
+    <a href="index.html#pass">Nimble Pass</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="content">
+  <h1>Get in touch</h1>
+  <p class="subtitle">Press, partnership, or a question about one of our tools. We read every message.</p>
+
+  <div class="contact-form">
+    <div class="form-title">Send us a message</div>
+    <form id="contactForm" name="contact" method="POST" data-netlify="true" action="/success">
+      <input type="hidden" name="form-name" value="contact" />
+      <div class="form-group">
+        <label for="name" class="form-label">Full name</label>
+        <input type="text" id="name" name="name" class="form-input" placeholder="Sarah Johnson" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" id="email" name="email" class="form-input" placeholder="sarah@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="firm" class="form-label">Firm or organisation (optional)</label>
+        <input type="text" id="firm" name="firm" class="form-input" placeholder="Hartley LLP">
+      </div>
+
+      <div class="form-group">
+        <label for="subject" class="form-label">Subject</label>
+        <input type="text" id="subject" name="subject" class="form-input" placeholder="Press enquiry" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message" class="form-label">Message</label>
+        <textarea id="message" name="message" class="form-textarea" placeholder="Tell us what's on your mind." required></textarea>
+      </div>
+
+      <button type="submit" class="form-submit" id="submitBtn">Send message</button>
+      <div class="form-message" id="formMessage"></div>
+    </form>
+  </div>
+
+  <p class="contact-direct">
+    Or email us directly at <a href="mailto:hello@nimbletech.uk">hello@nimbletech.uk</a>.
+  </p>
+
+  <div class="registered-office">
+    <div class="registered-office-title">Registered office</div>
+    <div>Nimble Tech Ltd<br>67 Plimsoll Road, London, N4 2EB, United Kingdom<br>Company number 16203504 (England and Wales)</div>
+  </div>
+</div>
+
+<footer>
+  <p>Nimble Tech &nbsp;·&nbsp; <a href="privacy.html">Privacy policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms</a> &nbsp;·&nbsp; <a href="sub-processors.html">Sub-processors</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a></p>
+  <p style="margin-top:6px;">© 2026 Nimble Tech Ltd. All rights reserved.</p>
+  <p style="margin-top:6px; color: rgba(255,255,255,0.25);">Nimble Tech Ltd is registered in England and Wales (company no. 16203504).</p>
+</footer>
+
+<script>
+/* Pre-fill `subject`, `message`, `name`, `email`, and `firm` from URL query
+   parameters where present (used by deep-links from product sites that
+   route press / partnership enquiries to the parent contact form). After
+   pre-fill, scrub the params from the URL bar so a refresh or copied URL
+   does not carry the values around. */
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var prefilled = false;
+  ['subject', 'message', 'name', 'email', 'firm'].forEach(function (name) {
+    var value = params.get(name);
+    if (value === null) return;
+    var el = document.getElementById(name);
+    if (!el) return;
+    el.value = value;
+    prefilled = true;
+  });
+  if (prefilled) {
+    var clean = window.location.pathname + window.location.hash;
+    window.history.replaceState({}, document.title, clean);
+  }
+})();
+</script>
+</body>
+</html>

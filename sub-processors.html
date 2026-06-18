@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Nimble Tech, sub-processors</title>
+<meta name="description" content="The sub-processors used by the Nimble Tech parent marketing site (nimbletech.uk). Individual products list their own sub-processors on their own sites.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0f0e0d;
+  --ink-mid: #4a4845;
+  --ink-light: #9a9690;
+  --paper: #faf9f7;
+  --paper-warm: #f3f1ec;
+  --paper-mid: #e8e4dc;
+  --accent: #1a2a44;
+  --accent-light: #2d4a78;
+  --accent-pale: #e8edf5;
+  --accent-border: #c2cfe3;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'Instrument Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
+  --radius: 10px;
+  --radius-lg: 16px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 60px;
+  background: rgba(250,249,247,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--paper-mid);
+}
+
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-mark {
+  width: 30px; height: 30px; background: var(--accent); border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-mark span { color: #fff; font-size: 12px; font-family: var(--mono); font-weight: 500; }
+.nav-name { font-size: 16px; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; }
+
+.nav-links { display: flex; align-items: center; gap: 2rem; }
+.nav-links a { font-size: 14px; color: var(--ink-mid); text-decoration: none; transition: color 0.15s; }
+.nav-links a:hover { color: var(--ink); }
+
+/* CONTENT */
+.content {
+  max-width: 900px; margin: 0 auto;
+  padding: 120px 2rem 80px;
+}
+
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.last-updated {
+  font-size: 14px;
+  color: var(--ink-light);
+  margin-bottom: 2.5rem;
+}
+
+h2 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--ink);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+p {
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+ul, ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+
+strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* TABLE */
+.sp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 2rem;
+  background: #fff;
+  border: 1px solid var(--paper-mid);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.sp-table th,
+.sp-table td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--paper-mid);
+  vertical-align: top;
+  color: var(--ink-mid);
+  line-height: 1.55;
+}
+
+.sp-table th {
+  background: var(--paper-warm);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+}
+
+.sp-table tr:last-child td { border-bottom: none; }
+
+.sp-table td:first-child { color: var(--ink); font-weight: 600; width: 22%; }
+
+/* CALLOUT */
+.callout {
+  background: var(--accent-pale);
+  border-left: 3px solid var(--accent);
+  padding: 1rem 1.25rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 1.5rem 0;
+}
+
+.callout p { margin-bottom: 0; }
+
+/* FOOTER */
+footer {
+  background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 2rem; text-align: center;
+  font-size: 12px; color: rgba(255,255,255,0.35);
+}
+footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+footer a:hover { color: rgba(255,255,255,0.8); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .sp-table { font-size: 13px; }
+  .sp-table th, .sp-table td { padding: 10px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-mark"><span>NT</span></div>
+    <span class="nav-name">Nimble Tech</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#mission">Mission</a>
+    <a href="index.html#pass">Nimble Pass</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="content">
+  <h1>Sub-processors</h1>
+  <p class="last-updated">Last updated: 18 June 2026</p>
+
+  <p>This page lists the sub-processors used by the Nimble Tech parent marketing site at <a href="https://nimbletech.uk">nimbletech.uk</a>. The parent site is a static brochure and ideas form; it does not process customer documents, issue licence keys, or run any AI. As a result, the list is short.</p>
+
+  <p>Individual Nimble Tech products use their own, larger set of sub-processors. Each product publishes its own list on its own sub-processors page.</p>
+
+  <div class="callout">
+    <p>For the sub-processors used by individual Nimble Tech products, including AWS, AWS Bedrock for AI, Stripe for payments, and Amazon SES for transactional email, see each product's own sub-processors page. The live one today is <a href="https://bundleright.co.uk/sub-processors.html">bundleright.co.uk/sub-processors.html</a>.</p>
+  </div>
+
+  <h2>Current sub-processors</h2>
+
+  <table class="sp-table">
+    <thead>
+      <tr>
+        <th>Sub-processor</th>
+        <th>Purpose</th>
+        <th>Data</th>
+        <th>Region</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Netlify, Inc.</td>
+        <td>Hosting the Nimble Tech marketing site (nimbletech.uk) and processing submissions from the ideas form and the contact form</td>
+        <td>Name, email address, optional firm or organisation name, subject line, and message body, where supplied through a form on the site. No product or customer document data is sent to Netlify.</td>
+        <td>Global edge network with EU/UK presence; processing governed by Netlify's DPA</td>
+      </tr>
+      <tr>
+        <td>Google Ireland Limited (Google Fonts)</td>
+        <td>Serving the typefaces used on the marketing site</td>
+        <td>Visitor IP address (received as part of the font request only). No other personal data is sent.</td>
+        <td>Global edge network with EU/UK presence; processing governed by Google's DPA</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>The parent site does not currently use analytics, advertising trackers, or a CDN beyond what Netlify provides as part of hosting. If that changes, the list above is updated before the change goes live.</p>
+
+  <h2>Changes to this list</h2>
+
+  <p>We will update this page when we add, replace, or remove a sub-processor. The "Last updated" date at the top reflects the most recent change. Where a change is material, for example a new provider that receives form submissions or visitor data, we will note the change here when it happens.</p>
+
+  <h2>How we choose and oversee sub-processors</h2>
+
+  <p>Before engaging a sub-processor for the parent site, we:</p>
+  <ul>
+    <li>Confirm the provider offers contractual data protection terms at least as strong as our own commitments, including UK GDPR Article 28 obligations where the provider acts as a processor</li>
+    <li>Confirm the location and region of processing, and the safeguards in place for any international transfer</li>
+    <li>Limit the data shared with the provider to what is necessary for the specific purpose</li>
+    <li>Review the relationship periodically and at any material change to the site</li>
+  </ul>
+
+  <h2>Contact</h2>
+
+  <p>Questions about this list can be sent through our <a href="contact.html">contact form</a> or directly to <a href="mailto:hello@nimbletech.uk">hello@nimbletech.uk</a>.</p>
+</div>
+
+<footer>
+  <p>Nimble Tech &nbsp;·&nbsp; <a href="privacy.html">Privacy policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms</a> &nbsp;·&nbsp; <a href="sub-processors.html">Sub-processors</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a></p>
+  <p style="margin-top:6px;">© 2026 Nimble Tech Ltd. All rights reserved.</p>
+  <p style="margin-top:6px; color: rgba(255,255,255,0.25);">Nimble Tech Ltd is registered in England and Wales (company no. 16203504).</p>
+</footer>
+
+</body>
+</html>

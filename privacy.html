@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>Nimble Tech, privacy policy</title>
+<meta name="description" content="Privacy policy for the Nimble Tech parent marketing site (nimbletech.uk). For data collected by individual products, see each product's own privacy policy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0f0e0d;
+  --ink-mid: #4a4845;
+  --ink-light: #9a9690;
+  --paper: #faf9f7;
+  --paper-warm: #f3f1ec;
+  --paper-mid: #e8e4dc;
+  --accent: #1a2a44;
+  --accent-light: #2d4a78;
+  --accent-pale: #e8edf5;
+  --accent-border: #c2cfe3;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'Instrument Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
+  --radius: 10px;
+  --radius-lg: 16px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 60px;
+  background: rgba(250,249,247,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--paper-mid);
+}
+
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-mark {
+  width: 30px; height: 30px; background: var(--accent); border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-mark span { color: #fff; font-size: 12px; font-family: var(--mono); font-weight: 500; }
+.nav-name { font-size: 16px; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; }
+
+.nav-links { display: flex; align-items: center; gap: 2rem; }
+.nav-links a { font-size: 14px; color: var(--ink-mid); text-decoration: none; transition: color 0.15s; }
+.nav-links a:hover { color: var(--ink); }
+
+/* CONTENT */
+.content {
+  max-width: 800px; margin: 0 auto;
+  padding: 120px 2rem 80px;
+}
+
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.last-updated {
+  font-size: 14px;
+  color: var(--ink-light);
+  margin-bottom: 2.5rem;
+}
+
+h2 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--ink);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+p {
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+ul, ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  font-size: 15px;
+  color: var(--ink-mid);
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+
+strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink); border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 2rem; text-align: center;
+  font-size: 12px; color: rgba(255,255,255,0.35);
+}
+footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+footer a:hover { color: rgba(255,255,255,0.8); }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-mark"><span>NT</span></div>
+    <span class="nav-name">Nimble Tech</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#mission">Mission</a>
+    <a href="index.html#pass">Nimble Pass</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="content">
+  <h1>Privacy Policy</h1>
+  <p class="last-updated">Last updated: 18 June 2026</p>
+
+  <p>This privacy policy covers the Nimble Tech parent marketing site at <a href="https://nimbletech.uk">nimbletech.uk</a>, operated by Nimble Tech Ltd ("we", "us", or "our"). The parent site is a static brochure with a single ideas form and a contact form. It does not host any product, process customer documents, or run any AI.</p>
+
+  <p>For data collected by individual Nimble Tech products, including licence-key data, document processing, billing, and AI calls via AWS Bedrock, see the privacy policy on that product's site. The live one today is <a href="https://bundleright.co.uk/privacy.html">bundleright.co.uk/privacy.html</a>.</p>
+
+  <h2>1. Information We Collect</h2>
+
+  <p><strong>Ideas form:</strong> When you submit the "Got an idea" form on the home page, we collect:</p>
+  <ul>
+    <li>Your name</li>
+    <li>Your email address</li>
+    <li>The idea or message you write</li>
+    <li>The date and time of submission</li>
+  </ul>
+
+  <p><strong>Contact form:</strong> When you submit the form on the contact page, or email <a href="mailto:hello@nimbletech.uk">hello@nimbletech.uk</a> directly, we collect:</p>
+  <ul>
+    <li>Your name and email address</li>
+    <li>Your firm or organisation name, if you supply one (optional)</li>
+    <li>The subject and message body</li>
+  </ul>
+
+  <p><strong>Form metadata via Netlify:</strong> Both forms are processed by Netlify, our hosting provider. As part of standard form handling, Netlify records the IP address of the submission and basic timing metadata for spam protection. This data sits with Netlify and is not used by us for any other purpose.</p>
+
+  <p>The parent site does not run analytics, set tracking cookies, or use advertising pixels. It does not collect anything from visitors who do not submit a form, beyond what is automatically logged by Netlify as part of serving the page.</p>
+
+  <h2>2. How We Use Your Information</h2>
+
+  <p>We use the information you submit to:</p>
+  <ul>
+    <li>Read and consider the ideas and messages you send us</li>
+    <li>Reply to you, if a reply is appropriate</li>
+    <li>Build a small internal record of what tools people are asking for, which helps us decide what to build next</li>
+  </ul>
+
+  <p><strong>We will never:</strong></p>
+  <ul>
+    <li>Sell or share your personal data with third parties for marketing purposes</li>
+    <li>Add you to a marketing mailing list without a clear and separate opt-in</li>
+    <li>Use the content of your ideas or messages to train AI models</li>
+  </ul>
+
+  <h2>3. Zero Data Retention (ZDR)</h2>
+
+  <p>Not applicable to the parent site. The Nimble Tech marketing site does not run any AI and does not send any of your data to a model provider. The ZDR commitments that apply to AI processing are made on the individual product sites that actually run AI. See, for example, the ZDR section of the <a href="https://bundleright.co.uk/privacy.html">BundleRight privacy policy</a>.</p>
+
+  <h2>4. Data Storage and Security</h2>
+
+  <p>The parent site is a static site served by Netlify over HTTPS. Form submissions are encrypted in transit and held in Netlify's form storage, which is protected by Netlify's account-level access controls. Within Nimble Tech, access to form submissions is restricted to the small number of people who need it to read and reply to messages.</p>
+
+  <p><strong>Breach notification.</strong> If a personal data breach occurs that affects information we hold about you, we will notify the UK Information Commissioner's Office (ICO) without undue delay and, where feasible, within 72 hours of becoming aware of it, in line with Article 33 of UK GDPR. Where the breach is likely to result in a high risk to your rights and freedoms, we will also notify you directly under Article 34, describing what happened, what data was affected, what we have done in response, and what (if anything) you should do next.</p>
+
+  <p>We maintain an internal incident response process covering detection, containment, assessment, notification, and post-incident review.</p>
+
+  <h2>5. Data Sharing</h2>
+
+  <p>We share the limited data described above only with the providers we need to operate the site:</p>
+  <ul>
+    <li><strong>Netlify, Inc.:</strong> Hosts the site and receives all form submissions on our behalf. Netlify acts as our processor for these submissions.</li>
+    <li><strong>Google Ireland Limited (Google Fonts):</strong> Delivers the typefaces used on the site. Google receives your IP address when fonts are loaded, but no other personal data is sent through this load.</li>
+  </ul>
+
+  <p>The full list, with purpose and region, is on our <a href="sub-processors.html">sub-processors page</a> and is updated when sub-processors change.</p>
+
+  <h2>6. Your Rights</h2>
+
+  <p>Under UK data protection law (UK GDPR), you have the right to:</p>
+  <ul>
+    <li>Access your personal data</li>
+    <li>Correct inaccurate personal data</li>
+    <li>Request deletion of your personal data</li>
+    <li>Object to processing of your personal data</li>
+    <li>Request restriction of processing your personal data</li>
+    <li>Request transfer of your personal data (data portability)</li>
+    <li>Withdraw consent at any time</li>
+  </ul>
+
+  <p>To exercise any of these rights, please email <a href="mailto:hello@nimbletech.uk">hello@nimbletech.uk</a>. For a deletion request, please tell us the email address you used when you submitted the form so we can find your message.</p>
+
+  <h2>7. Data Retention</h2>
+
+  <ul>
+    <li><strong>Ideas form submissions:</strong> Retained for up to 24 months from submission, then deleted, unless we are in active correspondence with you about the idea</li>
+    <li><strong>Contact form submissions and email enquiries:</strong> Retained for up to 24 months from the last reply in the thread, then deleted, unless we have an ongoing business reason to keep them</li>
+    <li><strong>Netlify form metadata:</strong> Retained by Netlify according to its own retention policy</li>
+  </ul>
+
+  <h2>8. Cookies, Browser Storage, and Tracking</h2>
+
+  <p>The Nimble Tech parent site is designed to be quiet:</p>
+  <ul>
+    <li><strong>No tracking cookies, no analytics cookies, no advertising cookies.</strong> The site does not use Google Analytics, Plausible, Fathom, or any equivalent.</li>
+    <li><strong>Netlify form handling:</strong> When you submit the ideas form or the contact form, Netlify may set a small number of essential cookies to detect spam and prevent duplicate submissions. These are not used for analytics or advertising.</li>
+    <li><strong>Web fonts:</strong> The pages load fonts from Google Fonts. Google receives your IP address when fonts are requested, but no cookies are set by this load.</li>
+  </ul>
+
+  <h2>9. International Transfers</h2>
+
+  <p>Netlify and Google Fonts both operate global edge networks with EU/UK presence. Where data crosses borders, the transfer is governed by the provider's own data protection terms, including UK GDPR-compatible safeguards.</p>
+
+  <h2>10. Children's Privacy</h2>
+
+  <p>The Nimble Tech site is not intended for use by individuals under 18 years of age. We do not knowingly collect personal data from children.</p>
+
+  <h2>11. Changes to This Policy</h2>
+
+  <p>We may update this privacy policy from time to time. The "Last updated" date at the top of this policy indicates when it was last revised. Material changes will be flagged on this page.</p>
+
+  <h2>12. Contact Us</h2>
+
+  <p>If you have questions about this privacy policy or how we handle your data, please contact us:</p>
+
+  <p>
+    <strong>Nimble Tech Ltd</strong><br>
+    67 Plimsoll Road, London, N4 2EB, United Kingdom<br>
+    Company number 16203504 (registered in England and Wales)<br>
+    Email: <a href="mailto:hello@nimbletech.uk">hello@nimbletech.uk</a><br>
+    Contact form: <a href="contact.html">nimbletech.uk/contact</a>
+  </p>
+
+  <p>If you are not satisfied with our response, you have the right to lodge a complaint with the UK Information Commissioner's Office (ICO) at <a href="https://ico.org.uk">ico.org.uk</a>.</p>
+</div>
+
+<footer>
+  <p>Nimble Tech &nbsp;·&nbsp; <a href="privacy.html">Privacy policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms</a> &nbsp;·&nbsp; <a href="sub-processors.html">Sub-processors</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a></p>
+  <p style="margin-top:6px;">© 2026 Nimble Tech Ltd. All rights reserved.</p>
+  <p style="margin-top:6px; color: rgba(255,255,255,0.25);">Nimble Tech Ltd is registered in England and Wales (company no. 16203504).</p>
+</footer>
+
+</body>
+</html>
