@@ -473,6 +473,13 @@ section { padding: 5rem 2rem; }
   transform: translateY(-1px);
 }
 
+.form-checkbox-group { margin-bottom: 1rem; }
+.form-checkbox-label {
+  display: flex; align-items: center; gap: 10px;
+  cursor: pointer; font-size: 14px; color: var(--ink);
+}
+.form-checkbox { width: 18px; height: 18px; cursor: pointer; accent-color: var(--accent); }
+
 .contact-direct {
   margin-top: 1.5rem;
   font-size: 14px;
@@ -679,6 +686,12 @@ footer a:hover { color: rgba(255,255,255,0.8); }
         <div class="form-group">
           <label for="idea" class="form-label">Your idea</label>
           <textarea id="idea" name="idea" class="form-textarea" placeholder="The thing I wish existed is..." required></textarea>
+        </div>
+        <div class="form-group form-checkbox-group">
+          <label class="form-checkbox-label">
+            <input type="checkbox" id="beta-tester" name="beta-tester" class="form-checkbox" value="yes">
+            <span>Interested in helping us test our tools?</span>
+          </label>
         </div>
         <button type="submit" class="form-submit">Send it over</button>
       </form>
