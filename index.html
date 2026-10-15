@@ -3,48 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nimble Tech | Great tech, made accessible</title>
-<meta name="description" content="Nimble Tech builds small, focused tools for UK law firms. The Nimble Pass is pay-as-you-go credit, shared across every Nimble product. BundleRight is live; FixMyTime and VerifyDoc are on the way.">
+<title>Nimble Tech | Tools built with your firm</title>
+<meta name="description" content="Nimble Tech builds bespoke software for UK law firms, commissioned by your firm and visible only to your firm, on the same platform and the same security profile as every tool we ship.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://nimbletech.uk/">
-<meta property="og:title" content="Nimble Tech, great tech made accessible">
-<meta property="og:description" content="Small, focused tools for UK law firms. The Nimble Pass is pay-as-you-go credit, shared across every Nimble product.">
+<meta property="og:title" content="Nimble Tech, tools built with your firm">
+<meta property="og:description" content="Bespoke software for UK law firms. Commissioned by your firm, visible only to your firm, on a platform with the security review already behind it.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://nimbletech.uk/">
 <meta property="og:site_name" content="Nimble Tech">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nimble Tech, great tech made accessible">
-<meta name="twitter:description" content="Small, focused tools for UK law firms. The Nimble Pass is pay-as-you-go credit, shared across every Nimble product.">
+<meta name="twitter:title" content="Nimble Tech, tools built with your firm">
+<meta name="twitter:description" content="Bespoke software for UK law firms. Commissioned by your firm, visible only to your firm.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+/* Nimble Tech website system, take 5.
+   Base is take-4 tonal navy (see "New Brand Guidelines.md"), matched to the
+   Nimble platform app tokens in platform_core/web/templates/base.html.
+   Additions for the Bespoke-focused build: hero stats, process steps,
+   commercial tiles, security grid, route cards. */
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --ink: #0f0e0d;
-  --ink-mid: #4a4845;
-  --ink-light: #9a9690;
-  --paper: #faf9f7;
-  --paper-warm: #f3f1ec;
-  --paper-mid: #e8e4dc;
+  --bg: #eef2f8;
+  --bg-deep: #d2dcea;
+  --bg-card: #ffffff;
+  --line: #b8c5d8;
+  --line-soft: #d0dae8;
+  --ink: #0f1a2e;
+  --ink-mid: #4a5670;
+  --ink-light: #8b94a8;
   --accent: #1a2a44;
   --accent-light: #2d4a78;
-  --accent-pale: #e8edf5;
-  --accent-border: #c2cfe3;
-  --serif: 'DM Serif Display', Georgia, serif;
-  --sans: 'Instrument Sans', system-ui, sans-serif;
-  --mono: 'DM Mono', monospace;
+  --accent-deep: #0d1626;
+  --accent-pale: #dfe6f0;
+  --sans: 'Geist', system-ui, sans-serif;
+  --mono: 'Geist Mono', ui-monospace, monospace;
   --radius: 10px;
-  --radius-lg: 16px;
+  --radius-lg: 18px;
 }
 
 html { scroll-behavior: smooth; }
-
 body {
   font-family: var(--sans);
-  background: var(--paper);
+  background: var(--bg);
   color: var(--ink);
-  line-height: 1.6;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -52,478 +58,552 @@ body {
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 2rem; height: 60px;
-  background: rgba(250,249,247,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--paper-mid);
+  padding: 0 1.5rem; height: 64px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 rgba(15,26,46,0.03);
 }
-
 .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .nav-mark {
-  width: 30px; height: 30px; background: var(--accent); border-radius: 7px;
+  width: 30px; height: 30px; background: var(--accent);
+  border-radius: 8px;
   display: flex; align-items: center; justify-content: center;
 }
-.nav-mark span { color: #fff; font-size: 12px; font-family: var(--mono); font-weight: 500; }
-.nav-name { font-size: 16px; font-weight: 600; color: var(--ink); letter-spacing: -0.02em; }
-
-.nav-links { display: flex; align-items: center; gap: 2rem; }
-.nav-links a { font-size: 14px; color: var(--ink-mid); text-decoration: none; transition: color 0.15s; }
+.nav-mark span { color: #fff; font-size: 11px; font-family: var(--mono); font-weight: 500; }
+.nav-name { font-size: 15px; font-weight: 700; color: var(--ink); letter-spacing: -0.015em; }
+.nav-right { display: flex; align-items: center; gap: 1.75rem; }
+.nav-links { display: flex; align-items: center; gap: 1.75rem; }
+.nav-links a {
+  font-size: 14px; color: var(--ink-mid);
+  text-decoration: none; font-weight: 500;
+  transition: color 0.15s;
+}
 .nav-links a:hover { color: var(--ink); }
 .nav-cta {
-  padding: 7px 18px; border-radius: 7px;
+  padding: 8px 18px; border-radius: 999px;
   background: var(--accent); color: #fff;
-  font-size: 13px; font-weight: 500;
-  text-decoration: none; border: none; cursor: pointer;
+  font-size: 13px; font-weight: 600;
+  text-decoration: none;
   transition: background 0.15s;
 }
 .nav-cta:hover { background: var(--accent-light); }
 
 /* HERO */
 .hero {
-  padding: 140px 2rem 80px;
-  max-width: 900px; margin: 0 auto;
+  padding: 150px 1.5rem 90px;
+  max-width: 940px; margin: 0 auto;
   text-align: center;
+  position: relative;
 }
-
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 60px; left: 50%; transform: translateX(-50%);
+  width: 800px; height: 800px;
+  max-width: 100%;
+  background: radial-gradient(circle, rgba(26,42,68,0.06) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
 .hero-badge {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 5px 14px; border-radius: 20px;
-  background: var(--accent-pale); color: var(--accent);
-  font-size: 12px; font-weight: 500;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 12px; font-weight: 600;
+  color: var(--accent);
   margin-bottom: 2rem;
-  border: 1px solid var(--accent-border);
 }
 .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 
 h1 {
-  font-family: var(--serif);
-  font-size: clamp(2.6rem, 6vw, 4.4rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(2.8rem, 6.5vw, 5rem);
+  line-height: 1.0;
+  letter-spacing: -0.035em;
   color: var(--ink);
-  margin-bottom: 1.5rem;
+  margin: 0 auto 1.75rem;
+  max-width: 18ch;
 }
-
-h1 em { font-style: italic; color: var(--accent); }
+h1 .accent { color: var(--accent); font-weight: 800; }
 
 .hero-sub {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--ink-mid);
-  max-width: 580px;
+  max-width: 600px;
   margin: 0 auto 2.5rem;
-  line-height: 1.7;
+  line-height: 1.55;
 }
-
-.hero-actions { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-
+.hero-actions {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.75rem; flex-wrap: wrap;
+}
 .btn-primary {
-  padding: 13px 28px; border-radius: var(--radius);
+  padding: 13px 26px; border-radius: 999px;
   background: var(--accent); color: #fff;
-  font-size: 15px; font-weight: 500;
-  text-decoration: none; border: none; cursor: pointer;
-  transition: all 0.15s; display: inline-block;
+  font-size: 14.5px; font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s;
+  box-shadow: 0 1px 0 var(--accent-deep);
 }
 .btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
-
 .btn-secondary {
-  padding: 13px 28px; border-radius: var(--radius);
-  background: transparent; color: var(--ink);
-  font-size: 15px; font-weight: 500;
-  text-decoration: none; border: 1.5px solid var(--paper-mid); cursor: pointer;
-  transition: all 0.15s; display: inline-block;
+  padding: 13px 26px; border-radius: 999px;
+  background: var(--bg-card);
+  color: var(--ink);
+  font-size: 14.5px; font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  transition: border-color 0.15s;
 }
-.btn-secondary:hover { border-color: var(--ink-light); }
+.btn-secondary:hover { border-color: var(--accent); }
 
 /* SECTIONS */
-section { padding: 5rem 2rem; }
-
-.section-inner { max-width: 900px; margin: 0 auto; }
-
+section { padding: 6rem 1.5rem; }
+.section-inner { max-width: 940px; margin: 0 auto; }
 .section-label {
-  font-size: 12px; font-weight: 600; color: var(--ink-light);
-  letter-spacing: 0.1em; text-transform: uppercase;
-  margin-bottom: 0.75rem;
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--accent-pale);
+  border-radius: 999px;
+  font-size: 11px; font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  margin-bottom: 1.25rem;
 }
-
 .section-title {
-  font-family: var(--serif);
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  line-height: 1.15; margin-bottom: 1rem;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
+  line-height: 1.1; margin-bottom: 1rem;
+  letter-spacing: -0.03em;
   color: var(--ink);
+  max-width: 24ch;
 }
-
+.section-title .accent { color: var(--accent); font-weight: 800; }
 .section-sub {
   font-size: 1.05rem;
   color: var(--ink-mid);
-  line-height: 1.7;
-  max-width: 640px;
-  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  max-width: 620px;
 }
 
-/* MISSION (paper-warm strip) */
-.mission {
-  background: var(--paper-warm);
-  border-top: 1px solid var(--paper-mid);
-  border-bottom: 1px solid var(--paper-mid);
+/* BAND: deeper tonal tint */
+.band {
+  background: var(--bg-deep);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
-.mission .section-inner { text-align: center; }
-.mission .section-sub { margin-left: auto; margin-right: auto; }
-
+/* MISSION / FEATURE CARDS */
 .mission-points {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  margin-top: 2.5rem;
-  text-align: left;
+  gap: 1rem;
+  margin-top: 3rem;
 }
-
 .mission-card {
-  background: #fff;
-  border: 1px solid var(--paper-mid);
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 1.75rem 1.5rem;
+  transition: transform 0.2s;
 }
-
+.mission-card:hover { transform: translateY(-2px); }
 .mission-card-num {
-  font-family: var(--mono);
-  font-size: 11px;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px;
+  background: var(--accent-pale);
   color: var(--accent);
-  font-weight: 500;
-  margin-bottom: 0.75rem;
-  letter-spacing: 0.05em;
+  border-radius: 8px;
+  font-family: var(--mono);
+  font-size: 11px; font-weight: 500;
+  margin-bottom: 1rem;
 }
-
 .mission-card-title {
-  font-family: var(--serif);
-  font-size: 1.15rem;
+  font-weight: 700;
+  font-size: 1.1rem;
   color: var(--ink);
   margin-bottom: 0.5rem;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
-
 .mission-card-body {
   font-size: 14px;
   color: var(--ink-mid);
+  line-height: 1.55;
+}
+
+/* ROUTE CARDS: Library vs Bespoke */
+.routes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.route-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.85rem;
+  display: flex; flex-direction: column;
+  transition: all 0.15s;
+}
+.route-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.route-card.featured { border-color: var(--accent); border-width: 1.5px; }
+.route-eyebrow {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: var(--ink-light);
+  margin-bottom: 0.85rem;
+}
+.route-name {
+  font-size: 1.5rem; font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.route-line {
+  font-size: 14.5px; color: var(--ink-mid);
+  line-height: 1.6; margin-bottom: 1.35rem;
+}
+.route-facts { list-style: none; margin-bottom: 1.75rem; }
+.route-facts li {
+  font-size: 13.5px; color: var(--ink-mid);
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--line-soft);
+  display: flex; gap: 0.85rem;
+}
+.route-facts li:last-child { border-bottom: 1px solid var(--line-soft); }
+.route-facts .k {
+  font-family: var(--mono); font-size: 10.5px;
+  color: var(--ink-light); letter-spacing: 0.04em;
+  flex-shrink: 0; width: 86px; padding-top: 2px;
+}
+.route-facts .v { color: var(--ink); font-weight: 500; }
+.route-card .btn-primary,
+.route-card .btn-secondary { margin-top: auto; text-align: center; }
+
+/* PROCESS STEPS */
+.steps { margin-top: 3rem; display: grid; gap: 0.75rem; }
+.step {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  padding: 1.35rem 1.4rem;
+}
+.step-num {
+  font-family: var(--mono);
+  font-size: 11px; font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-pale);
+  border-radius: 8px;
+  padding: 7px 0;
+  text-align: center;
+}
+.step-title {
+  font-size: 15.5px; font-weight: 700;
+  color: var(--ink); letter-spacing: -0.015em;
+  margin-bottom: 4px;
+}
+.step-body { font-size: 14px; color: var(--ink-mid); line-height: 1.6; }
+.step-body strong { color: var(--ink); font-weight: 600; }
+
+/* COMMERCIAL TILES */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.tiles.two { grid-template-columns: repeat(2, 1fr); }
+.subhead {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: var(--ink-light);
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.tile {
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+}
+.tile-label {
+  font-family: var(--mono);
+  font-size: 10.5px; letter-spacing: 0.08em;
+  color: var(--ink-light);
+  margin-bottom: 0.85rem;
+}
+.tile-name {
+  font-size: 1.05rem; font-weight: 700;
+  color: var(--ink); letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+.tile-body { font-size: 14px; color: var(--ink-mid); line-height: 1.6; }
+.tile-note {
+  margin-top: 1.75rem;
+  font-size: 13.5px;
+  color: var(--ink-mid);
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  line-height: 1.6;
+}
+.tile-note strong { color: var(--ink); font-weight: 600; }
+
+/* SECURITY: dark band */
+.security {
+  background: linear-gradient(160deg, var(--accent) 0%, var(--accent-deep) 100%);
+  color: #fff;
+}
+.security .section-label { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); }
+.security .section-title { color: #fff; }
+.security .section-sub { color: rgba(255,255,255,0.75); }
+.sec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 3rem;
+}
+.sec-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.4rem;
+}
+.sec-card-title {
+  font-size: 14.5px; font-weight: 700;
+  color: #fff; letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+}
+.sec-card-body {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.72);
   line-height: 1.6;
 }
 
-/* NIMBLE PASS */
+/* PASS */
 .pass-card {
-  background: #fff;
-  border: 1px solid var(--paper-mid);
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
   border-radius: var(--radius-lg);
   padding: 2.25rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 2rem;
+  gap: 2.5rem;
   align-items: center;
 }
-
 .pass-card-body p {
-  font-size: 15px;
+  font-size: 14.5px;
   color: var(--ink-mid);
-  line-height: 1.7;
-  margin-bottom: 0.75rem;
+  line-height: 1.65;
+  margin-bottom: 0.85rem;
 }
-
 .pass-card-body p:last-child { margin-bottom: 0; }
-
-.pass-card-body strong {
-  color: var(--ink);
-  font-weight: 600;
-}
-
+.pass-card-body strong { color: var(--ink); font-weight: 700; }
+.pass-card-body a { color: var(--accent); text-decoration: none; font-weight: 600; }
+.pass-card-body a:hover { text-decoration: underline; }
 .pass-visual {
-  background: var(--accent);
+  background: linear-gradient(160deg, var(--accent-light) 0%, var(--accent) 50%, var(--accent-deep) 100%);
   border-radius: var(--radius-lg);
   padding: 1.75rem 1.5rem;
   text-align: center;
   color: #fff;
   width: 220px;
 }
-
 .pass-visual-label {
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  font-family: var(--mono); font-size: 10px;
   color: rgba(255,255,255,0.55);
   margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
 }
-
 .pass-visual-name {
-  font-family: var(--serif);
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-  letter-spacing: -0.01em;
+  font-weight: 700; font-size: 1.25rem;
+  margin-bottom: 1.25rem; letter-spacing: -0.01em;
 }
-
-.pass-visual-divider {
-  height: 1px;
-  background: rgba(255,255,255,0.15);
-  margin: 1rem 0;
-}
-
-.pass-visual-stat {
-  font-family: var(--serif);
-  font-size: 1.6rem;
-  line-height: 1;
-}
-
+.pass-visual-divider { height: 1px; background: rgba(255,255,255,0.15); margin: 1rem 0; }
+.pass-visual-stat { font-size: 2.25rem; font-weight: 600; line-height: 1; }
 .pass-visual-sub {
-  font-size: 11px;
+  font-size: 11px; font-weight: 500;
   color: rgba(255,255,255,0.6);
   margin-top: 4px;
 }
 
-/* PRODUCT LIST */
-.products {
-  margin-top: 2.5rem;
-  display: grid;
-  gap: 0.75rem;
-}
-
+/* PRODUCTS */
+.products { margin-top: 2.5rem; display: grid; gap: 0.75rem; }
 .product-row {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
-  background: #fff;
-  border: 1px solid var(--paper-mid);
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
   border-radius: var(--radius);
-  text-decoration: none;
-  color: inherit;
+  text-decoration: none; color: inherit;
   transition: all 0.15s;
 }
-
-.product-row:hover {
-  border-color: var(--accent);
-  transform: translateY(-1px);
-}
-
+.product-row:hover { border-color: var(--accent); transform: translateY(-1px); }
 .product-mark {
-  width: 36px; height: 36px;
-  border-radius: 8px;
+  width: 38px; height: 38px;
+  border-radius: 10px;
   background: var(--accent);
   color: #fff;
   font-family: var(--mono);
-  font-size: 12px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 11px; font-weight: 500;
+  display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
-
 .product-mark.coming {
-  background: var(--paper-warm);
+  background: var(--bg-deep);
   color: var(--ink-light);
-  border: 1px dashed var(--paper-mid);
+  border: 1px dashed var(--ink-light);
 }
-
 .product-info { flex: 1; }
-
 .product-name {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--ink);
+  font-size: 15px; font-weight: 700;
+  color: var(--ink); letter-spacing: -0.01em;
   margin-bottom: 2px;
 }
-
-.product-desc {
-  font-size: 13px;
-  color: var(--ink-mid);
-}
-
-.product-arrow {
-  font-size: 18px;
-  color: var(--ink-light);
-}
-
-.product-row.disabled {
-  cursor: default;
-}
-
-.product-row.disabled:hover {
-  border-color: var(--paper-mid);
-  transform: none;
-}
-
-.product-row.disabled .product-name {
-  color: var(--ink-light);
-}
-
+.product-desc { font-size: 13.5px; color: var(--ink-mid); }
+.product-desc a { color: var(--accent); text-decoration: none; font-weight: 500; }
+.product-arrow { font-size: 16px; color: var(--ink-light); }
+.product-row.disabled { cursor: default; }
+.product-row.disabled:hover { border-color: var(--line-soft); transform: none; }
+.product-row.disabled .product-name { color: var(--ink-light); }
 .product-tag {
-  font-size: 10px;
-  font-family: var(--mono);
-  padding: 3px 8px;
-  border-radius: 4px;
-  background: var(--paper-warm);
-  color: var(--ink-light);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 10px; font-family: var(--mono);
+  padding: 3px 10px; border-radius: 999px;
+  background: var(--bg-deep); color: var(--ink-light);
+  letter-spacing: 0.05em; font-weight: 500;
 }
 
-/* WATCH THIS SPACE */
+/* WATCH */
 .watch {
-  background: var(--accent);
+  background: linear-gradient(160deg, var(--accent) 0%, var(--accent-deep) 100%);
   color: #fff;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
-
-.watch .section-inner { max-width: 700px; }
-.watch .section-label { color: rgba(255,255,255,0.5); }
-.watch .section-title { color: #fff; }
-.watch .section-sub {
-  color: rgba(255,255,255,0.75);
-  margin-left: auto;
-  margin-right: auto;
+.watch::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+  pointer-events: none;
 }
-
-.watch-marquee {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(1.15rem, 2.5vw, 1.6rem);
-  color: rgba(255,255,255,0.92);
-  line-height: 1.5;
-  margin-top: 2rem;
-  padding: 1.5rem 0;
+.watch .section-inner { max-width: 720px; position: relative; }
+.watch .section-label { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); }
+.watch .section-title { color: #fff; margin-left: auto; margin-right: auto; }
+.watch .section-sub { color: rgba(255,255,255,0.75); margin-left: auto; margin-right: auto; }
+.watch-quote {
+  margin-top: 2.5rem;
+  padding: 2rem 0;
   border-top: 1px solid rgba(255,255,255,0.15);
   border-bottom: 1px solid rgba(255,255,255,0.15);
+  font-size: clamp(1.15rem, 2.3vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: rgba(255,255,255,0.95);
+  line-height: 1.4;
 }
-
-.watch-marquee-attr {
-  display: block;
-  font-family: var(--sans);
-  font-style: normal;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.watch-quote-attr {
+  display: block; margin-top: 1.25rem;
+  font-family: var(--mono); font-size: 11px;
   color: rgba(255,255,255,0.5);
-  margin-top: 1rem;
+  letter-spacing: 0.1em;
+  font-weight: 400;
 }
 
 /* CONTACT */
-.contact .section-inner { max-width: 600px; text-align: center; }
+.contact .section-inner { max-width: 620px; text-align: center; }
 .contact .section-sub { margin-left: auto; margin-right: auto; }
-
+.contact .section-title { margin-left: auto; margin-right: auto; }
 .contact-form {
-  background: #fff;
-  border: 1px solid var(--paper-mid);
+  background: var(--bg-card);
+  border: 1px solid var(--line-soft);
   border-radius: var(--radius-lg);
   padding: 2rem;
   text-align: left;
   margin-top: 2rem;
 }
-
 .form-group { margin-bottom: 1rem; }
-
 .form-label {
   display: block;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 13px; font-weight: 600;
   color: var(--ink);
   margin-bottom: 0.4rem;
 }
-
-.form-input,
-.form-textarea {
+.form-input, .form-textarea, .form-select {
   width: 100%;
-  padding: 10px 14px;
+  padding: 11px 14px;
   border-radius: var(--radius);
-  border: 1.5px solid var(--paper-mid);
-  font-size: 14px;
-  font-family: var(--sans);
-  transition: border-color 0.15s;
-  background: var(--paper);
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 14px; font-family: var(--sans);
+  transition: all 0.15s;
 }
-
-.form-textarea {
-  min-height: 130px;
-  resize: vertical;
-}
-
-.form-input:focus,
-.form-textarea:focus {
+.form-textarea { min-height: 120px; resize: vertical; }
+.form-input:focus, .form-textarea:focus, .form-select:focus {
   outline: none;
   border-color: var(--accent);
-  background: #fff;
+  background: var(--bg-card);
 }
-
-.form-submit {
-  width: 100%;
-  padding: 13px 28px;
-  border-radius: var(--radius);
-  background: var(--accent);
-  color: #fff;
-  font-size: 15px;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
-  transition: all 0.15s;
-  font-family: var(--sans);
-  margin-top: 0.5rem;
-}
-
-.form-submit:hover {
-  background: var(--accent-light);
-  transform: translateY(-1px);
-}
-
-.form-checkbox-group { margin-bottom: 1rem; }
+.form-checkbox-group { margin-bottom: 1.25rem; }
 .form-checkbox-label {
   display: flex; align-items: center; gap: 10px;
-  cursor: pointer; font-size: 14px; color: var(--ink);
+  font-size: 13.5px; color: var(--ink); cursor: pointer;
 }
-.form-checkbox { width: 18px; height: 18px; cursor: pointer; accent-color: var(--accent); }
-
-.contact-direct {
-  margin-top: 1.5rem;
-  font-size: 14px;
-  color: var(--ink-light);
+.form-checkbox { width: 17px; height: 17px; cursor: pointer; accent-color: var(--accent); }
+.form-submit {
+  width: 100%;
+  padding: 13px 26px;
+  border-radius: 999px;
+  background: var(--accent); color: #fff;
+  font-size: 14.5px; font-weight: 600;
+  border: none; cursor: pointer;
+  font-family: var(--sans);
+  transition: background 0.15s;
 }
-
-.contact-direct a {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.contact-direct a:hover { text-decoration: underline; }
+.form-submit:hover { background: var(--accent-light); }
 
 /* FOOTER */
 footer {
-  background: var(--ink);
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding: 2rem;
+  background: var(--accent-deep);
+  padding: 2.5rem 1.5rem;
   text-align: center;
   font-size: 12px;
-  color: rgba(255,255,255,0.35);
-}
-
-footer a {
   color: rgba(255,255,255,0.5);
-  text-decoration: none;
 }
+footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+footer a:hover { color: #fff; }
+footer p { margin-bottom: 6px; }
 
-footer a:hover { color: rgba(255,255,255,0.8); }
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .nav-links { display: none; }
-  .mission-points { grid-template-columns: 1fr; }
-  .pass-card {
-    grid-template-columns: 1fr;
-    padding: 1.5rem;
-  }
-  .pass-visual {
-    width: 100%;
-  }
-  section { padding: 3.5rem 1.5rem; }
-  .hero { padding: 110px 1.5rem 60px; }
+  .mission-points, .tiles, .tiles.two, .sec-grid { grid-template-columns: 1fr; }
+  .routes { grid-template-columns: 1fr; }
+  .pass-card { grid-template-columns: 1fr; padding: 1.5rem; }
+  .pass-visual { width: 100%; }
+  section { padding: 4rem 1.5rem; }
+  .hero { padding: 120px 1.5rem 70px; }
+  .step { grid-template-columns: 1fr; gap: 0.75rem; }
+  .step-num { width: 52px; }
+  .route-facts li { flex-direction: column; gap: 2px; }
+  .route-facts .k { width: auto; }
 }
 </style>
 </head>
@@ -534,91 +614,193 @@ footer a:hover { color: rgba(255,255,255,0.8); }
     <div class="nav-mark"><span>NT</span></div>
     <span class="nav-name">Nimble Tech</span>
   </a>
-  <div class="nav-links">
-    <a href="#mission">Mission</a>
-    <a href="#pass">Nimble Pass</a>
-    <a href="#contact">Contact</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#bespoke">Bespoke</a>
+      <a href="#costs">What it costs</a>
+      <a href="#security">Security</a>
+      <a href="#library">Library</a>
+    </div>
+    <a href="#contact" class="nav-cta">Talk to us</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-badge">
-    <span class="hero-badge-dot"></span>
-    <span>Parent company · Building in public</span>
-  </div>
-  <h1>Great tech, <em>made accessible</em>.</h1>
+  <h1>The tools your firm needs, <span class="accent">built with your firm.</span></h1>
   <p class="hero-sub">
-    Nimble Tech builds small, focused tools that solve one problem properly, and a single pay-as-you-go pass that works across all of them. No subscriptions. No seat counts. No fuss.
+    Nimble Bespoke builds the software your firm actually needs, on the platform that already runs our other products. Commissioned by you, visible only to you, invoiced monthly.
   </p>
   <div class="hero-actions">
-    <a href="#pass" class="btn-primary">How the Nimble Pass works</a>
-    <a href="#tools" class="btn-secondary">Our tools ↓</a>
+    <a href="#contact" class="btn-primary">Start a conversation</a>
+    <a href="#costs" class="btn-secondary">What it costs</a>
   </div>
 </section>
 
-<!-- MISSION -->
-<section class="mission" id="mission">
+<!-- WHY BESPOKE ISN'T A BESPOKE RISK -->
+<section class="band" id="bespoke">
   <div class="section-inner">
-    <div class="section-label">Our mission</div>
-    <h2 class="section-title">Powerful tools shouldn't be locked behind enterprise pricing.</h2>
+    <div class="section-label">Nimble Bespoke</div>
+    <h2 class="section-title">A tool built for one firm, on a platform built for all of them.</h2>
     <p class="section-sub">
-      Great tools shouldn't require a multi-year contract or a six-month integration project. We build software that just works: pay-as-you-go, no rollout required, accessible to any firm.
+      The usual problem with commissioned software is that you get a one-off, and a one-off comes with one-off security, one-off hosting and one-off risk. With Nimble Tech, your tool is the only bespoke part. Everything underneath it is the same platform our other products run on, with the same security review behind it.
     </p>
-
     <div class="mission-points">
       <div class="mission-card">
         <div class="mission-card-num">01</div>
-        <div class="mission-card-title">Solve one thing properly</div>
-        <div class="mission-card-body">Each Nimble product does a single job extremely well. No feature bloat, no creeping scope.</div>
+        <div class="mission-card-title">Yours alone to use</div>
+        <div class="mission-card-body">Your tool appears for your firm and nobody else. Access is scoped per firm and per user, so you decide which of your people can access it.</div>
       </div>
       <div class="mission-card">
         <div class="mission-card-num">02</div>
-        <div class="mission-card-title">Pay only for what you use</div>
-        <div class="mission-card-body">No subscriptions. No annual lock-in. The Nimble Pass turns software into a pay-as-you-go utility.</div>
+        <div class="mission-card-title">Not yours alone to secure</div>
+        <div class="mission-card-body">Accounts, encryption, audit and retention come from our central Nimble platform. You inherit our security profile rather than paying to have one built.</div>
       </div>
       <div class="mission-card">
         <div class="mission-card-num">03</div>
-        <div class="mission-card-title">Respect your data</div>
-        <div class="mission-card-body">Zero retention by default. We don't train on your work, sell your data, or pretend otherwise.</div>
+        <div class="mission-card-title">Metered per matter</div>
+        <div class="mission-card-body">Usage is metered per matter and exportable as a disbursement.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- NIMBLE PASS -->
-<section id="pass">
+<!-- COMMERCIALS -->
+<section id="costs">
   <div class="section-inner">
-    <div class="section-label">The Nimble Pass</div>
-    <h2 class="section-title">One wallet. Every Nimble tool.</h2>
+    <div class="section-label">What it costs</div>
+    <h2 class="section-title">What you pay, <span class="accent">and when.</span></h2>
     <p class="section-sub">
-      The Nimble Pass is a single set of credits that works across every product we build. Top up once, then use the same balance to bundle a court hearing in BundleRight today, and whatever we ship next week.
+      Two fees to get the tool built, then your choice of how to pay for running it. Everything is invoiced monthly, with nothing to buy up front.
     </p>
 
-    <div class="pass-card">
-      <div class="pass-card-body">
-        <p><strong>Buy credits when you need them.</strong> No subscription, no monthly fee, no annual lock-in. Credits stay valid for 12 months from your most recent top-up. Keep using us and your balance keeps rolling.</p>
-        <p><strong>Spend them anywhere in the family.</strong> Today that means <a href="https://bundleright.co.uk" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-weight:500;">BundleRight</a>. Tomorrow it'll mean more, and your credits will already work there.</p>
-        <p><strong>Accessible to any firm.</strong> The same quality of software, without the lock-in or the IT rollout. Pay only for what you use, and start in minutes.</p>
+    <div class="tiles two">
+      <div class="tile">
+        <div class="tile-label">TO BUILD IT &middot; 01</div>
+        <div class="tile-name">Consulting fee</div>
+        <div class="tile-body">For the scoping work and the written specification. Payable whether or not you go on to commission the build, so the thinking stands on its own.</div>
       </div>
-      <div class="pass-visual">
-        <div class="pass-visual-label">Nimble Pass</div>
-        <div class="pass-visual-name">Pay as you go</div>
-        <div class="pass-visual-divider"></div>
-        <div class="pass-visual-stat">∞</div>
-        <div class="pass-visual-sub">products supported</div>
+      <div class="tile">
+        <div class="tile-label">TO BUILD IT &middot; 02</div>
+        <div class="tile-name">Configuration or build fee</div>
+        <div class="tile-body">One or the other, never both. Configuring an existing Nimble tool to your workflow is the cheaper route, and we will tell you when it is available to you.</div>
       </div>
     </div>
 
+    <div class="subhead">TO RUN IT, PICK ONE</div>
 
-    <div class="products" id="tools">
+    <div class="routes">
+      <div class="route-card">
+        <div class="route-eyebrow">OPTION 01</div>
+        <div class="route-name">Pay as you go</div>
+        <div class="route-line">A set price each time someone uses the tool, and nothing at all in the months nobody does.</div>
+        <ul class="route-facts">
+          <li><span class="k">YOU PAY</span><span class="v">Per use, accrued to a monthly invoice</span></li>
+          <li><span class="k">SUITS</span><span class="v">Uneven or occasional volume</span></li>
+          <li><span class="k">PER MATTER</span><span class="v">Each run carries its matter, so it exports as a disbursement</span></li>
+          <li><span class="k">STARTS</span><span class="v">When beta ends</span></li>
+        </ul>
+      </div>
+      <div class="route-card featured">
+        <div class="route-eyebrow">OPTION 02</div>
+        <div class="route-name">Monthly subscription</div>
+        <div class="route-line">One flat monthly fee for unlimited use, with no seat counts and nobody rationing access.</div>
+        <ul class="route-facts">
+          <li><span class="k">YOU PAY</span><span class="v">A flat monthly fee, however much you use it</span></li>
+          <li><span class="k">SUITS</span><span class="v">Steady use across a team</span></li>
+          <li><span class="k">PER MATTER</span><span class="v">Still recorded per matter for your own reporting</span></li>
+          <li><span class="k">STARTS</span><span class="v">When beta ends</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="tile-note">
+      <strong>Nothing to pay for usage during beta.</strong> Whichever option you pick, it begins at beta exit, so the window where you are still telling us what is wrong with it is not a window you are paying for.
+    </p>
+    <p class="tile-note">
+      <strong>Recorded against the matter, either way.</strong> Every run carries the matter it belongs to, so you can export a per-matter record of exactly what you were charged and recharge it to your client at cost, in the form your billing system expects.
+    </p>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section class="security" id="security">
+  <div class="section-inner">
+    <div class="section-label">Security</div>
+    <h2 class="section-title">The same answers, whoever asks.</h2>
+    <p class="section-sub">
+      This is the part of a bespoke build that normally costs you a six-week risk assessment. Because your tool runs on the shared Nimble platform, the answers below are already settled and already in use.
+    </p>
+    <div class="sec-grid">
+      <div class="sec-card">
+        <div class="sec-card-title">AI through AWS Bedrock</div>
+        <div class="sec-card-body">Models are called through AWS Bedrock with no retention, no prompt logging and no training on what you send. Your drafting does not become anyone's dataset.</div>
+      </div>
+      <div class="sec-card">
+        <div class="sec-card-title">Encrypted in transit and at rest</div>
+        <div class="sec-card-body">TLS 1.3 to the application, encrypted storage behind it. No unencrypted copy of your documents exists at any point.</div>
+      </div>
+      <div class="sec-card">
+        <div class="sec-card-title">UK infrastructure, private routing</div>
+        <div class="sec-card-body">Hosted in AWS eu-west-2. The AI endpoint is reached over a private network path inside our own infrastructure, with no route out to the public internet.</div>
+      </div>
+      <div class="sec-card">
+        <div class="sec-card-title">Matter labels we cannot read</div>
+        <div class="sec-card-body">Your readable matter names are encrypted with a key your firm holds. We store an opaque code and an opaque ciphertext, and we hold no key to either.</div>
+      </div>
+      <div class="sec-card">
+        <div class="sec-card-title">Minimal data model</div>
+        <div class="sec-card-body">We keep what the tool needs to do its job and to bill you correctly. We do not collect client data for any other purpose, because we have no other purpose for it.</div>
+      </div>
+      <div class="sec-card">
+        <div class="sec-card-title">Deletion on request</div>
+        <div class="sec-card-body">Ask us to remove your firm's data and we remove it, to a defined timetable written into the agreement rather than left to goodwill.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IN PRACTICE -->
+<section>
+  <div class="section-inner">
+    <div class="section-label">In practice</div>
+    <h2 class="section-title">What a bespoke tool actually looks like.</h2>
+    <p class="section-sub">
+      A worked example of the shape. This is the kind of job that earns a bespoke build, rather than a tool you could pick off a shelf.
+    </p>
+    <div class="pass-card">
+      <div class="pass-card-body">
+        <p><strong>The job.</strong> A commercial team held several hundred client contracts across shared drives and old matter files. The break dates, notice windows and auto-renewal clauses sat inside the documents and nowhere else. Missing a notice window meant a client tied in for another year, and the first anyone knew of it was the renewal invoice.</p>
+        <p><strong>The tool.</strong> Drop in a folder of contracts. Each one comes back with its term, renewal basis, notice window and break date pulled out and cited to the clause it came from, and the whole set lands as a dated register the team can actually work from.</p>
+        <p><strong>Why it had to be bespoke.</strong> Nothing off the shelf knew the firm's own templates or the way it records key dates. The extraction had to follow their house definitions, and the register had to drop straight into the diary system they already use.</p>
+      </div>
+      <div class="pass-visual">
+        <div class="pass-visual-label">BESPOKE BUILD</div>
+        <div class="pass-visual-name">Renewals register</div>
+        <div class="pass-visual-divider"></div>
+        <div class="pass-visual-stat">1</div>
+        <div class="pass-visual-sub">firm with access</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIBRARY, SECONDARY -->
+<section class="band" id="library">
+  <div class="section-inner">
+    <div class="section-label">Nimble Library</div>
+    <h2 class="section-title">Or start with something we have already built.</h2>
+    <p class="section-sub">
+      Not every job needs a bespoke build. The Library is our catalogue of off-the-shelf tools, open to any firm and paid for with Nimble Pass credits. Same platform, same security, no scoping call required.
+    </p>
+    <div class="products">
       <a href="https://bundleright.co.uk" class="product-row" target="_blank" rel="noopener">
         <div class="product-mark" style="background: #1c3a2e;">BR</div>
         <div class="product-info">
           <div class="product-name">BundleRight</div>
           <div class="product-desc">Document bundling for law firms. Live now.</div>
         </div>
-        <div class="product-arrow">→</div>
+        <div class="product-arrow">&rarr;</div>
       </a>
       <a href="https://fix-my-time.com" class="product-row" target="_blank" rel="noopener">
         <div class="product-mark" style="background: #2e1b4e;">FMT</div>
@@ -626,7 +808,7 @@ footer a:hover { color: rgba(255,255,255,0.8); }
           <div class="product-name">FixMyTime</div>
           <div class="product-desc">Automatic timesheet review. For everyone.</div>
         </div>
-        <div class="product-arrow">→</div>
+        <div class="product-arrow">&rarr;</div>
       </a>
       <div class="product-row disabled">
         <div class="product-mark coming">VDo</div>
@@ -634,32 +816,12 @@ footer a:hover { color: rgba(255,255,255,0.8); }
           <div class="product-name">VerifyDoc</div>
           <div class="product-desc">Document verification. Sorted.</div>
         </div>
-        <div class="product-tag">Soon</div>
-      </div>
-      <div class="product-row disabled">
-        <div class="product-mark coming">··</div>
-        <div class="product-info">
-          <div class="product-name">More on the way</div>
-          <div class="product-desc">We're working on the next one. Have an idea? <a href="#contact" style="color:var(--accent);text-decoration:none;">Tell us below</a>.</div>
-        </div>
-        <div class="product-tag">Soon</div>
+        <div class="product-tag">SOON</div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- WATCH THIS SPACE -->
-<section class="watch">
-  <div class="section-inner">
-    <div class="section-label">What's next</div>
-    <h2 class="section-title">Watch this space.</h2>
-    <p class="section-sub">
-      We're a small team shipping deliberately. New tools land when they're properly ready, not when a roadmap says so. Want a heads-up when the next one drops? Drop us a line below.
+    <p class="tile-note">
+      <strong>The two routes meet.</strong> If a Library tool is nearly right for your firm, Bespoke can configure it rather than build from scratch. That is the cheapest version of a bespoke tool, and it is worth asking about first.
     </p>
-    <div class="watch-marquee">
-      One day you'll have one system that does all of this.<br>
-      Until then, there's Nimble.
-    </div>
   </div>
 </section>
 
@@ -667,30 +829,33 @@ footer a:hover { color: rgba(255,255,255,0.8); }
 <section class="contact" id="contact">
   <div class="section-inner">
     <div class="section-label">Get in touch</div>
-    <h2 class="section-title">Got an idea? We'd love to hear it.</h2>
+    <h2 class="section-title">What is the job you would hand over?</h2>
     <p class="section-sub">
-      Tell us what tool you wish existed. What's the boring, expensive, badly-served job in your day that you'd pay a few quid to make disappear? That's exactly the brief we're looking for.
+      Tell us the boring, expensive, badly-served task in your week. If we can build it, we will say what it would take. If we cannot, or if you would be better off with something off the shelf, we will say that instead.
     </p>
-
     <div class="contact-form">
-      <form name="ideas" method="POST" data-netlify="true" action="/success">
-        <input type="hidden" name="form-name" value="ideas" />
+      <form name="bespoke" method="POST" data-netlify="true" action="/success">
+        <input type="hidden" name="form-name" value="bespoke" />
+        <div class="form-group">
+          <label for="firm" class="form-label">Firm</label>
+          <input type="text" id="firm" name="firm" class="form-input" placeholder="Your firm's name" required>
+        </div>
         <div class="form-group">
           <label for="name" class="form-label">Your name</label>
-          <input type="text" id="name" name="name" class="form-input" placeholder="Sarah Johnson" required>
+          <input type="text" id="name" name="name" class="form-input" placeholder="Jane Okonjo" required>
         </div>
         <div class="form-group">
           <label for="email" class="form-label">Email address</label>
-          <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required>
+          <input type="email" id="email" name="email" class="form-input" placeholder="you@yourfirm.co.uk" required>
         </div>
         <div class="form-group">
-          <label for="idea" class="form-label">Your idea</label>
-          <textarea id="idea" name="idea" class="form-textarea" placeholder="The thing I wish existed is..." required></textarea>
+          <label for="job" class="form-label">The job you would hand over</label>
+          <textarea id="job" name="job" class="form-textarea" placeholder="Every time we open a file, someone has to..." required></textarea>
         </div>
         <div class="form-group form-checkbox-group">
           <label class="form-checkbox-label">
-            <input type="checkbox" id="beta-tester" name="beta-tester" class="form-checkbox" value="yes">
-            <span>Interested in helping us test our tools?</span>
+            <input type="checkbox" id="beta" name="beta" class="form-checkbox" value="yes">
+            <span>Happy to be a beta firm for a tool like this</span>
           </label>
         </div>
         <button type="submit" class="form-submit">Send it over</button>
@@ -700,10 +865,12 @@ footer a:hover { color: rgba(255,255,255,0.8); }
 </section>
 
 <footer>
-  <p><a href="privacy.html">Privacy policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms</a> &nbsp;·&nbsp; <a href="sub-processors.html">Sub-processors</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a></p>
-  <p style="margin-top:6px;">© 2026 Nimble Tech Ltd. All rights reserved.</p>
+  <p><a href="privacy.html">Privacy policy</a> &nbsp;&middot;&nbsp; <a href="terms.html">Terms</a> &nbsp;&middot;&nbsp; <a href="sub-processors.html">Sub-processors</a> &nbsp;&middot;&nbsp; <a href="contact.html">Contact</a></p>
+  <p style="margin-top:6px;">&copy; 2026 Nimble Tech Ltd. All rights reserved.</p>
   <p style="margin-top:6px; opacity: 0.7;">Nimble Tech Ltd is registered in England and Wales (company no. 16203504).</p>
+  <p style="margin-top:14px; opacity: 0.55;">&nbsp;</p>
 </footer>
+
 
 </body>
 </html>
