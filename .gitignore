@@ -18,3 +18,8 @@
 
 # Netlify
 .netlify/
+
+# Local design explorations and mockups. Deliberately untracked: Netlify
+# deploys the repo root, so committing these would publish pages marked
+# "LOCAL MOCKUP, not published" at nimbletech.uk/explorations/.
+explorations/
