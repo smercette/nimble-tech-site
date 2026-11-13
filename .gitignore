@@ -23,3 +23,11 @@
 # deploys the repo root, so committing these would publish pages marked
 # "LOCAL MOCKUP, not published" at nimbletech.uk/explorations/.
 explorations/
+
+# Internal working documents kept alongside the site for convenience.
+# Same reason as explorations/ above: Netlify deploys the repo root, so a
+# committed file here is a public URL. The claims-by-product-family
+# analysis in particular lists which of our published claims do not hold
+# — publishing it at nimbletech.uk/... would be the opposite of the point.
+# Dated-prefix working notes, by convention:
+20[0-9][0-9][0-1][0-9][0-3][0-9]*.md

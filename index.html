@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nimble Tech | Tools built with your firm</title>
-<meta name="description" content="Nimble Tech builds bespoke software for UK law firms, commissioned by your firm and visible only to your firm, on the same platform and the same security profile as every tool we ship.">
+<meta name="description" content="Nimble Tech builds bespoke software for UK law firms, commissioned by your firm and visible only to your firm, on a shared platform with the security review already behind it.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="canonical" href="https://nimbletech.uk/">
 <meta property="og:title" content="Nimble Tech, tools built with your firm">
@@ -643,7 +643,7 @@ footer p { margin-bottom: 6px; }
     <div class="section-label">Nimble Bespoke</div>
     <h2 class="section-title">A tool built for one firm, on a platform built for all of them.</h2>
     <p class="section-sub">
-      The usual problem with commissioned software is that you get a one-off, and a one-off comes with one-off security, one-off hosting and one-off risk. With Nimble Tech, your tool is the only bespoke part. Everything underneath it is the same platform our other products run on, with the same security review behind it.
+      The usual problem with commissioned software is that you get a one-off, and a one-off comes with one-off security, one-off hosting and one-off risk. With Nimble Tech, your tool is the only bespoke part. Everything underneath it is the shared Nimble platform, with the same security review behind it as every bespoke tool we ship.
     </p>
     <div class="mission-points">
       <div class="mission-card">
@@ -727,34 +727,34 @@ footer p { margin-bottom: 6px; }
 <section class="security" id="security">
   <div class="section-inner">
     <div class="section-label">Security</div>
-    <h2 class="section-title">The same answers, whoever asks.</h2>
+    <h2 class="section-title">The answers your IT team will ask for.</h2>
     <p class="section-sub">
-      This is the part of a bespoke build that normally costs you a six-week risk assessment. Because your tool runs on the shared Nimble platform, the answers below are already settled and already in use.
+      This is the part of a bespoke build that normally costs you a six-week risk assessment. Because your tool runs on the shared Nimble platform, the answers below are already settled and already in use. They describe a Nimble Bespoke tool: the Library tools are built differently and answer some of them differently, and each tool&rsquo;s own pages say how.
     </p>
     <div class="sec-grid">
       <div class="sec-card">
         <div class="sec-card-title">AI through AWS Bedrock</div>
-        <div class="sec-card-body">Models are called through AWS Bedrock with no retention, no prompt logging and no training on what you send. Your drafting does not become anyone's dataset.</div>
+        <div class="sec-card-body">Models are called through AWS Bedrock under the AWS Data Processing Addendum: the provider retains nothing, logs no content, and trains on nothing you send. Your drafting does not become anyone's dataset.</div>
       </div>
       <div class="sec-card">
         <div class="sec-card-title">Encrypted in transit and at rest</div>
-        <div class="sec-card-body">TLS 1.3 to the application, encrypted storage behind it. No unencrypted copy of your documents exists at any point.</div>
+        <div class="sec-card-body">TLS 1.2 or better in transit, with TLS 1.3 preferred. Encrypted at rest with AES-256 in AWS London, and the database under a customer-managed AWS KMS key.</div>
       </div>
       <div class="sec-card">
         <div class="sec-card-title">UK infrastructure, private routing</div>
-        <div class="sec-card-body">Hosted in AWS eu-west-2. The AI endpoint is reached over a private network path inside our own infrastructure, with no route out to the public internet.</div>
+        <div class="sec-card-body">Hosted in AWS London (eu-west-2). Document analysis runs in London; one low-stakes classification step runs on an AWS inference profile that routes within AWS EU regions, so nothing is processed outside the EEA. The tool runs in private subnets with no NAT gateway and no default route out, and reaches the AI endpoint over a private VPC endpoint inside our own network.</div>
       </div>
       <div class="sec-card">
         <div class="sec-card-title">Matter labels we cannot read</div>
-        <div class="sec-card-body">Your readable matter names are encrypted with a key your firm holds. We store an opaque code and an opaque ciphertext, and we hold no key to either.</div>
+        <div class="sec-card-body">Your readable matter names are encrypted in your browser under a firm key our servers never store in usable form. We store an opaque code and an opaque ciphertext, and no key that decrypts either.</div>
       </div>
       <div class="sec-card">
-        <div class="sec-card-title">Minimal data model</div>
-        <div class="sec-card-body">We keep what the tool needs to do its job and to bill you correctly. We do not collect client data for any other purpose, because we have no other purpose for it.</div>
+        <div class="sec-card-title">Minimal data model, minimal logs</div>
+        <div class="sec-card-body">We keep what the tool needs to do its job, to bill you correctly, and the findings your team comes back to. We do not collect client data for any other purpose, because we have no other purpose for it. No document content reaches any log &mdash; logs hold counts, timings and error classes only, and automated tests fail the build if that stops being true.</div>
       </div>
       <div class="sec-card">
-        <div class="sec-card-title">Deletion on request</div>
-        <div class="sec-card-body">Ask us to remove your firm's data and we remove it, to a defined timetable written into the agreement rather than left to goodwill.</div>
+        <div class="sec-card-title">Retention and deletion</div>
+        <div class="sec-card-body">Uploaded documents and generated exports are deleted automatically 30 days after a run completes, whether it succeeded or failed; the report itself is kept so your team can return to it. Ask us to remove your firm's data sooner and we remove it to the timetable in your agreement, and issue a deletion certificate.</div>
       </div>
     </div>
   </div>
@@ -791,7 +791,7 @@ footer p { margin-bottom: 6px; }
     <div class="section-label">Nimble Library</div>
     <h2 class="section-title">Or start with something we have already built.</h2>
     <p class="section-sub">
-      Not every job needs a bespoke build. The Library is our catalogue of off-the-shelf tools, open to any firm and paid for with Nimble Pass credits. Same platform, same security, no scoping call required.
+      Not every job needs a bespoke build. The Library is our catalogue of off-the-shelf tools, open to any firm and paid for with Nimble Pass credits. Same AWS region, the same AI routing and the same logging discipline. The Library tools are simpler by design &mdash; no accounts, and nothing kept after your session &mdash; so some of the Bespoke answers above do not apply, and each tool&rsquo;s own pages say which.
     </p>
     <div class="products">
       <a href="https://bundleright.co.uk" class="product-row" target="_blank" rel="noopener">
