@@ -31,3 +31,8 @@ explorations/
 # — publishing it at nimbletech.uk/... would be the opposite of the point.
 # Dated-prefix working notes, by convention:
 20[0-9][0-9][0-1][0-9][0-3][0-9]*.md
+
+# Internal brand guidelines. Same reason again: tracked, they were served
+# publicly at nimbletech.uk/New%20Brand%20Guidelines.md. Kept locally.
+/New Brand Guidelines.md
+/Nimble Tech Website Brand Guidelines.md
